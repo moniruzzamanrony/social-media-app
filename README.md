@@ -19,17 +19,14 @@ In this [Assignment](https://example.com)
 
 
 ### Built With
-We don't need for any data migration which  given me about location etc .this table automatically
-created with necessary data.
-* [MySQL File](https://example.com)
 
-### Frontend:
+#### Frontend:
 * [Angular 11](https://github.com/moniruzzamanrony/social-media-app/tree/master/Social-Media-Frontend)
-### Backend:
+#### Backend:
 * [Springboot Framework](https://github.com/moniruzzamanrony/social-media-app/tree/master/social-media-backend)
-### Database:
+#### Database:
 * [MySql](https://github.com/moniruzzamanrony/social-media-app/tree/master/social-media-backend)
-### Security:
+#### Security:
 * [Spring Security](https://spring.io/projects/spring-security)
 * [Json Web Token (JWT)](https://jwt.io/)
 
@@ -39,9 +36,10 @@ created with necessary data.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+We don't need for any data migration which  given me about location etc .this table automatically
+created with necessary data.
 
+* [MySQL File](https://example.com)
 ### Prerequisites
 
 ## Installation
@@ -55,10 +53,14 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    cd social-media-backend
    ```
-2. Change DB
+2. Create DB
+   ```sql
+   CREATE DATABASE `db_social_media`;
+   ```
+2. Change DB Password and username
    ```
    Change username password from src/main/resources/application.yml
-   ```   
+   ```         
 2. Install maven
    ```sh
    mvn clean
