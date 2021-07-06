@@ -39,7 +39,7 @@ In this [Assignment](https://example.com)
 We don't need for any data migration which  given me about location etc .this table automatically
 created with necessary data.
 
-* [MySQL File](https://example.com)
+* [MySQL File](https://github.com/moniruzzamanrony/social-media-app/blob/master/db_social_media.sql)
 ### Prerequisites
 
 ## Installation
