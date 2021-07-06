@@ -29,6 +29,8 @@ In this [Assignment](https://example.com)
 #### Security:
 * [Spring Security](https://spring.io/projects/spring-security)
 * [Json Web Token (JWT)](https://jwt.io/)
+#### Deployment:
+* [Docker](https://www.docker.com/)
 
 
 
@@ -48,7 +50,21 @@ created with necessary data.
    ```sh
    git clone https://github.com/moniruzzamanrony/social-media-app.git
    ```
-## Backend
+* ### Backend Docker Support
+1. Goto Project Directory
+   ```sh
+   cd social-media-backend
+   ```
+1. Docker run
+   ```sh
+   sudo docker-compose up
+   ```
+   or
+   ```sh
+    docker-compose up
+   ```
+   
+## Backend Manual Run
 1. Goto Project Directory
    ```sh
    cd social-media-backend
@@ -69,11 +85,6 @@ created with necessary data.
    ```
    mvn spring-boot:run
    ```
-* ### Backend Docker Support
-1. Goto Project Directory
-   ```sh
-   cd Social-Media-Frontend
-   ```
 ## Frontend
 1. Goto Project Directory
    ```sh
@@ -86,11 +97,6 @@ created with necessary data.
 3. Run Project
    ```
    ng serve
-   ```
-* ### Frontend Docker Support
-1. Goto Project Directory
-   ```sh
-   cd Social-Media-Frontend
    ```
 
 <!-- USAGE EXAMPLES -->
