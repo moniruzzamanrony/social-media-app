@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: Social-Media-Backend
+  profiles:
+    active: dev
+server:
+  port: 8087
+itvillage:
+  app:
+    jwtSecret: itvillage29
+    jwtExpiration: 86400
+---
+#Dev
+spring:
+  profiles: dev
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/db_social_media?serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
