@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {NewsFeedsService} from './services/news-feeds.service';
 import {AuthService} from './services/auth.service';
+import {LocationsService} from './services/locations.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {AuthService} from './services/auth.service';
   ],
   providers: [
     NewsFeedsService,
-    AuthService
+    AuthService,
+    LocationsService
   ],
   bootstrap: [AppComponent]
 })

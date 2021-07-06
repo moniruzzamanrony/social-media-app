@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @ToString
 public class StatusResponse {
 
+    private String id;
+
     private String statusBody;
 
     private PostPrivecy postPrivecy;

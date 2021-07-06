@@ -3,6 +3,7 @@ package com.assignment.socialmediabackend.controller;
 
 import com.assignment.socialmediabackend.constents.AuthConstent;
 import com.assignment.socialmediabackend.constents.SharePostConstent;
+import com.assignment.socialmediabackend.domain.model.Status;
 import com.assignment.socialmediabackend.dto.request.StatusRequest;
 import com.assignment.socialmediabackend.dto.response.IdentityResponse;
 import com.assignment.socialmediabackend.dto.response.StatusResponse;
@@ -38,5 +39,11 @@ public class StatusPostController {
     @PutMapping(SharePostConstent.GET_MY_STATUS_BY_ID)
     public ResponseEntity<Void> updatePost(@RequestBody StatusRequest statusRequest, @PathVariable String id) {
         return statusPostService.updateMyStatus(id, statusRequest);
+    }
+
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping(SharePostConstent.GET_MY_STATUS_BY_ID)
+    public ResponseEntity<Status> getStatusById(@PathVariable String id) {
+        return statusPostService.getStatusById(id);
     }
 }

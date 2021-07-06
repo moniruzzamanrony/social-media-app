@@ -7,19 +7,22 @@
                alt=""/>
         </div>
 
-        <div style="margin-left: 40px; margin-top: 20px">
-          <b>Occopations:</b>dsff
+        <div style="margin-left: 40px; margin-top: 20px; padding: 5px">
+          <b>Email: </b>{{profileDetails.email}}<br>
+          <b>Phone No: </b>{{profileDetails.phoneNo}}<br>
+          <b>Address: </b>{{profileDetails.address}}<br>
+          <b>Joining Date: </b>{{profileDetails.creationTimestamp}}<br>
         </div>
       </div>
       <div class="col-md-6">
         <div class="profile-head">
           <h4>
-            Kshiti Ghelani
+            {{profileDetails.name}}
           </h4>
           <h6>
-            Web Developer and Designer
+            @{{profileDetails.username}}
           </h6>
-          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -28,48 +31,25 @@
 
           </ul>
           <div>
-            <div class="card card-style">
+            <div class="card card-style" *ngFor="let status of statusList">
               <div class="card-header">
                 <div class="d-flex align-items-center">
                   <div class="image">
-                    <img
-                      src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                      class="profile-image" width="155" alt=""></div>
+                    <img src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" class="profile-image" width="155" alt=""> </div>
                   <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0">Alex Morrision</h4> <span>12-12-2020 8:12PM</span>
-
+                    <h4 class="mb-0 mt-0 text-primary">{{ status.ownerName }}</h4> <span>{{ status.creationTimestamp }}</span> |
+                    <span class="text-info"><b>{{ status.postPrivecy }}</b> STATUS</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <h4>dfghj</h4>
+                <h4>{{ status.statusBody }}  </h4>
 
               </div>
               <div class="card-header">
                 <i style="color: red" class="fas fa-map-marker-alt"></i>
-                <span style="margin: 5px">My Status</span>
-              </div>
-            </div>
-            <div class="card card-style">
-              <div class="card-header">
-                <div class="d-flex align-items-center">
-                  <div class="image">
-                    <img
-                      src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                      class="profile-image" width="155" alt=""></div>
-                  <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0">Alex Morrision</h4> <span>12-12-2020 8:12PM</span>
-
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <h4>dfghj</h4>
-
-              </div>
-              <div class="card-header">
-                <i style="color: red" class="fas fa-map-marker-alt"></i>
-                <span style="margin: 5px">My Status</span>
+                <span style="margin: 5px">{{ status.location }}</span>
+                <span style="margin-left: 10px; color: #1A237E" (click)="gotoEdit(status.id)"><i class="fas fa-edit"></i></span>
               </div>
             </div>
           </div>

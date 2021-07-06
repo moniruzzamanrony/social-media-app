@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent, children: [
       {path: 'home-page', component: HomePageComponent},
       {path: 'news-feed', component: NewsFeedsComponent},
+      {path: 'home-page/:id', component: HomePageComponent},
       {path: 'my-profile', component: MyProfileComponent}
     ]}
 ];

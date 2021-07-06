@@ -38,4 +38,9 @@ export class HomeComponent implements OnInit {
       console.log(err);
     });
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
 }

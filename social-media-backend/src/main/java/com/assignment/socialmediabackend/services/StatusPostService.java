@@ -89,4 +89,12 @@ public class StatusPostService {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    public ResponseEntity<Status> getStatusById(String id) {
+      Optional<Status> statusOptional=  statusRepository.findById(id);
+      if(!statusOptional.isPresent())
+      {
+          throw new ResourseNotFoundException("Status Not Found");
+      }
+      return new ResponseEntity(statusOptional.get(),HttpStatus.OK);
+    }
 }

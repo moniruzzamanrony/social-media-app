@@ -4,26 +4,23 @@
     Share Your Feelings
   </div>
   <div class="card-body">
-    <form (ngSubmit)="onSubmit()" [formGroup]="postStatus">
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+      {{buttonLabel}} failed.
+    </div>
+    <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+      {{buttonLabel}} successfull.
+    </div>
+    <form  [formGroup]="postStatus">
       <div>
-        <textarea class="form-control" formControlName="status" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" formControlName="statusBody" rows="3"></textarea>
       </div>
       <div class="label-of-field">
         <label>Choose Privacy</label><br>
 
-        <!-- Public-->
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample"
-                 >
-          <label class="custom-control-label" for="defaultInline1">Public</label>
-        </div>
-
-        <!-- Private-->
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
-                 >
-          <label class="custom-control-label" for="defaultInline2">Private</label>
-        </div>
+        <input type="radio" id="html" formControlName="postPrivecy" name="postPrivecy" value="PRIVATE">
+        <label for="html">Private</label><br>
+        <input type="radio" id="css" formControlName="postPrivecy" name="postPrivecy" value="PUBLIC">
+        <label for="css">Public</label><br>
 
       </div>
       <!-- Check In Drop Down-->
@@ -31,12 +28,11 @@
         <label class="label-of-field">Check In</label>
         <select class="form-control" formControlName="location">
           <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option *ngFor="let item of locationList" [value]="item.location">{{item.location}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary label-of-field">Post</button>
+      <button type="button" (click)="onSubmit(this.buttonLabel)"
+              class="btn btn-primary label-of-field">{{buttonLabel}}</button>
     </form>
   </div>
 </div>
