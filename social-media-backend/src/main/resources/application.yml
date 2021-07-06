@@ -9,6 +9,12 @@ itvillage:
   app:
     jwtSecret: itvillage29
     jwtExpiration: 86400
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger.json
 ---
 #Dev
 spring:
