@@ -6,7 +6,7 @@
 <h3 align="center">Social Media App</h3>
 
   <p align="center">
-    This projected create a assignment purpose!
+    This project created an assignment purpose!
     <br />
 </p>
 
