@@ -35,7 +35,7 @@
             <h6 class="mb-0 text-sm">Password</h6>
           </label> <input type="password" formControlName="password" > </div>
 
-          <div class="row mb-3 px-3 mt-3"> <button type="submit" (click)="save()" class="btn btn-blue text-center">Sign Up</button> </div>
+          <div class="row mb-3 px-3 mt-3"> <button type="submit" (click)="signUp()" class="btn btn-blue text-center">Sign Up</button> </div>
           <div *ngIf="isError" style="  background-color: rgba(255, 0, 0, 0.7);margin: 10px;text-align: center;border-radius: 2px; ">
             <p style="margin-top: 5px; color: #ffffff"><b>Please Try Again</b></p>
           </div>

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  social-media-frontend:
+    image: 'social-media-frontend'
+    ports:
+      - "3000:80"
+    restart: always
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"

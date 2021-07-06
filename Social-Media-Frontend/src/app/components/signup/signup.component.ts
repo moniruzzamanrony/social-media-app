@@ -28,12 +28,14 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  save() {
+  signUp() {
     if (this.signUpFromGroup.valid) {
       this.authService.signUp(this.signUpFromGroup.value).subscribe(res => {
         this.router.navigate(['/login']);
+        console.log('Success');
       }, err => {
-        this.isError = true;
+        console.log(err);
+        this.router.navigate(['/login']);
       });
 
     }
