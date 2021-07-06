@@ -24,6 +24,7 @@ import java.util.Optional;
 public class StatusPostService {
 
     private final StatusRepository statusRepository;
+    private final SignUpAndSignInService signUpAndSignInService;
 
     public ResponseEntity<IdentityResponse> post(StatusRequest statusRequest) {
         String uuid = ApplicationUtils.getUuid();
@@ -50,6 +51,7 @@ public class StatusPostService {
 
         statusList.stream().forEach(res -> {
             StatusResponse statusResponse = new StatusResponse();
+            statusResponse.setOwnerName(LoggedUserUtils.name);
             BeanUtils.copyProperties(res, statusResponse);
             statusResponseList.add(statusResponse);
         });
@@ -63,6 +65,7 @@ public class StatusPostService {
         statusList.stream().forEach(res -> {
             if (res.getPostPrivecy().equals(PostPrivecy.PUBLIC)) {
                 StatusResponse statusResponse = new StatusResponse();
+                statusResponse.setOwnerName(signUpAndSignInService.getDetailsById(res.getCreatedBy()).getName());
                 BeanUtils.copyProperties(res, statusResponse);
                 statusResponseList.add(statusResponse);
             }
@@ -85,4 +88,5 @@ public class StatusPostService {
         statusRepository.saveAndFlush(status);
         return new ResponseEntity(HttpStatus.OK);
     }
+
 }

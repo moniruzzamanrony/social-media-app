@@ -1,0 +1,23 @@
+<!-- Status Submit Form-->
+<div class="card card-style" *ngFor="let status of statusList">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <div class="image">
+        <img src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" class="profile-image" width="155" alt=""> </div>
+      <div class="ml-3 w-100">
+        <h4 class="mb-0 mt-0 text-primary">{{ status.ownerName }}</h4> <span>{{ status.creationTimestamp }}</span> |
+        <span class="text-info"><b>{{ status.postPrivecy }}</b> STATUS</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <h4>{{ status.statusBody }}  </h4>
+
+  </div>
+  <div class="card-header">
+    <i style="color: red" class="fas fa-map-marker-alt"></i>
+    <span style="margin: 5px">{{ status.location }}</span>
+  </div>
+</div>
+
+

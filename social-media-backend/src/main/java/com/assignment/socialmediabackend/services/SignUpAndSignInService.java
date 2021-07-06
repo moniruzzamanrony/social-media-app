@@ -12,6 +12,8 @@ import com.assignment.socialmediabackend.enums.RoleName;
 import com.assignment.socialmediabackend.exception.ResourseNotFoundException;
 import com.assignment.socialmediabackend.security.jwt.JwtProvider;
 import com.assignment.socialmediabackend.security.services.UserPrinciple;
+import com.assignment.socialmediabackend.utils.ApplicationUtils;
+import com.assignment.socialmediabackend.utils.LoggedUserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -42,7 +45,7 @@ public class SignUpAndSignInService {
     private UserPrinciple userPrinciple;
 
     public ResponseEntity<String> signUp(SignUpForm signUpRequest) {
-
+        String uuid = ApplicationUtils.getUuid();
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity<String>("Fail -> Username is already taken!",
                     HttpStatus.BAD_REQUEST);
@@ -52,7 +55,7 @@ public class SignUpAndSignInService {
         // Creating user's account
         User user = new User();
 
-        Set<RoleName> strRoles = signUpRequest.getRole();
+        Set<RoleName> strRoles = Set.of(RoleName.ROLE_USER);
         Set<Role> roles = new HashSet<>();
         strRoles.forEach(role -> {
             switch (role) {
@@ -66,7 +69,7 @@ public class SignUpAndSignInService {
             }
         });
 
-        user.setId(signUpRequest.getUserId());
+        user.setId(uuid);
         user.setUsername(signUpRequest.getUsername());
         user.setName(signUpRequest.getName());
         user.setPhoneNo(signUpRequest.getPhoneNo());
@@ -76,7 +79,7 @@ public class SignUpAndSignInService {
         user.setRoles(roles);
         userRepository.save(user);
 
-        return new ResponseEntity<String>(signUpRequest.getUserId(), HttpStatus.OK);
+        return new ResponseEntity<String>(uuid, HttpStatus.OK);
     }
 
     public JwtResponse signIn(LoginForm loginRequest) {
@@ -92,4 +95,19 @@ public class SignUpAndSignInService {
         return new JwtResponse(jwt);
     }
 
+    public User getDetailsById(String username)
+    {
+       Optional<User> userOptional= userRepository.findByUsername(username);
+
+       if(!userOptional.isPresent())
+       {
+           throw new ResourseNotFoundException("User Not Found");
+       }
+
+       return userOptional.get();
+    }
+
+    public ResponseEntity<User> getProfile() {
+        return new ResponseEntity(getDetailsById(LoggedUserUtils.username), HttpStatus.OK);
+    }
 }

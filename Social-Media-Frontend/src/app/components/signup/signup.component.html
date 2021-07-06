@@ -1,0 +1,48 @@
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto mt-6">
+  <div class="card card0 border-0">
+    <div class="row d-flex">
+      <div class="col-lg-6">
+        <div class="card1 pb-5">
+          <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <form [formGroup]="signUpFromGroup" class="myForm">
+        <div class="card2 card border-0 px-4 py-5">
+          <h2>Sign Up</h2>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Your Name</h6>
+          </label> <input class="mb-4" type="text" formControlName="name" > </div>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Email Address</h6>
+          </label> <input class="mb-4" type="text" formControlName="email"> </div>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Phone No</h6>
+          </label> <input class="mb-4" type="text" formControlName="phoneNo" > </div>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Address</h6>
+          </label> <input class="mb-4" type="text" formControlName="address" > </div>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Username</h6>
+          </label> <input class="mb-4" type="text" formControlName="username" > </div>
+
+          <div class="row px-3"> <label class="mb-1">
+            <h6 class="mb-0 text-sm">Password</h6>
+          </label> <input type="password" formControlName="password" > </div>
+
+          <div class="row mb-3 px-3 mt-3"> <button type="submit" (click)="save()" class="btn btn-blue text-center">Sign Up</button> </div>
+          <div *ngIf="isError" style="  background-color: rgba(255, 0, 0, 0.7);margin: 10px;text-align: center;border-radius: 2px; ">
+            <p style="margin-top: 5px; color: #ffffff"><b>Please Try Again</b></p>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

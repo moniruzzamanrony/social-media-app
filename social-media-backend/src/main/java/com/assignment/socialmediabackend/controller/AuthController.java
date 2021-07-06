@@ -2,6 +2,7 @@ package com.assignment.socialmediabackend.controller;
 
 
 import com.assignment.socialmediabackend.constents.AuthConstent;
+import com.assignment.socialmediabackend.domain.model.User;
 import com.assignment.socialmediabackend.dto.request.LoginForm;
 import com.assignment.socialmediabackend.dto.request.SignUpForm;
 import com.assignment.socialmediabackend.services.SignUpAndSignInService;
@@ -27,5 +28,6 @@ public class AuthController {
     public ResponseEntity<String> registerUser(@RequestBody SignUpForm signUpRequest) {
         return signUpAndSignInService.signUp(signUpRequest);
     }
+
 
 }

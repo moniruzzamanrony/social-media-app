@@ -20,7 +20,7 @@ public class StatusResponse {
 
     private LocalDateTime creationTimestamp;
 
-    private String createdBy;
+    private String ownerName;
 
 
 }

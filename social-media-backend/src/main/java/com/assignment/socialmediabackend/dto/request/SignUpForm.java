@@ -11,8 +11,6 @@ import java.util.Set;
 @Getter
 public class SignUpForm {
 
-    private String userId;
-
     private String name;
 
     private String email;
@@ -22,8 +20,6 @@ public class SignUpForm {
     private String address;
 
     private String username;
-
-    private Set<RoleName> role;
 
     private String password;
 

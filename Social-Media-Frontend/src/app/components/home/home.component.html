@@ -1,0 +1,97 @@
+
+
+
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+               alt="User picture">
+        </div>
+        <div class="user-info">
+          <span *ngIf="isNotFoundProfile" class="user-name">Anonymous
+            <strong>User</strong>
+          </span>
+          <span *ngIf="!isNotFoundProfile" class="user-name">{{profileDetails.name}}
+
+          </span>
+          <span class="user-role">User</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span class="menu-header-color">My Account</span>
+          </li>
+          <li >
+            <a routerLink="/my-profile">
+              <i class="fas fa-user"></i>
+              <span>My Profile</span>
+            </a>
+
+          </li>
+
+          <li class="header-menu">
+            <span class="menu-header-color">Deshboard</span>
+          </li>
+          <li>
+            <a routerLink="/news-feed">
+              <i class="fa fa-book"></i>
+              <span>News Feed</span>
+
+            </a>
+          </li>
+          <li>
+            <a routerLink="/home-page">
+              <i class="fas fa-newspaper"></i>
+              <span>My Status</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="top-bar">
+
+        <div class="row d-flex align-items-center">
+          <div class="col-md-6 d-md-block d-none">
+
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex justify-content-md-end justify-content-between">
+              <ul class="list-inline contact-info d-block d-md-none">
+                <li class="list-inline-item "><a href="#"><i class="fa fa-phone"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+              </ul>
+              <div *ngIf="isNotFoundProfile" class="login"><a routerLink="/login"  class="login-btn "><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a routerLink="/sign-up" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div class="dynamic-body">
+      <router-outlet></router-outlet>
+    </div>
+
+  </main>
+  <!-- page-content" -->
+</div>

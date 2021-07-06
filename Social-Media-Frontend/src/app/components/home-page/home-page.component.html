@@ -1,0 +1,42 @@
+<!-- Status Submit Form-->
+<div class="card">
+  <div class="card-header">
+    Share Your Feelings
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" [formGroup]="postStatus">
+      <div>
+        <textarea class="form-control" formControlName="status" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="label-of-field">
+        <label>Choose Privacy</label><br>
+
+        <!-- Public-->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample"
+                 >
+          <label class="custom-control-label" for="defaultInline1">Public</label>
+        </div>
+
+        <!-- Private-->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
+                 >
+          <label class="custom-control-label" for="defaultInline2">Private</label>
+        </div>
+
+      </div>
+      <!-- Check In Drop Down-->
+      <div>
+        <label class="label-of-field">Check In</label>
+        <select class="form-control" formControlName="location">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary label-of-field">Post</button>
+    </form>
+  </div>
+</div>

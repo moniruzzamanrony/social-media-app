@@ -7,5 +7,7 @@ public interface AuthConstent {
     String SIGNUP_API = "/signup";
     String SIGNIN_API = "/signin";
 
+    String GET_PROFILE_API = "/profile";
+
 
 }
